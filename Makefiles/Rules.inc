@@ -163,6 +163,7 @@ SRC_FILES = \
 	Src/GameLoader.cpp \
 	Src/Pkgs/tinyxml2.cpp \
 	Src/ROMSet.cpp \
+    Src/ScudOnline/ScudOnline.cpp \
 	$(PLATFORM_SRC_FILES)
 
 ifeq ($(strip $(NET_BOARD)),1)
@@ -170,6 +171,7 @@ ifeq ($(strip $(NET_BOARD)),1)
 		Src/Network/TCPReceive.cpp \
 		Src/Network/TCPSend.cpp \
 		Src/Network/NetBoard.cpp \
+        Src/Network/enet.c \
 		Src/Network/SimNetBoard.cpp
 endif
 

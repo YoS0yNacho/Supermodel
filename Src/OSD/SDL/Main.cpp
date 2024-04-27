@@ -101,6 +101,8 @@
 
 #include "Crosshair.h"
 
+#include "ScudOnline/ScudOnline.h"
+
 /******************************************************************************
  Global Run-time Config
 ******************************************************************************/
@@ -1316,6 +1318,9 @@ int Supermodel(const Game &game, ROMSet *rom_set, IEmulator *Model3, CInputs *In
       if (M)
         M->DumpTimings();
     }
+
+    // Run gamemod
+    gamemod_run();
   }
 
   // Make sure all threads are paused before shutting down
@@ -1861,6 +1866,7 @@ static ParsedCommandLine ParseCommandLine(int argc, char **argv)
         cmd_line.config_inputs = true;
       else if (arg == "-print-inputs")
         cmd_line.print_inputs = true;
+
 #ifdef SUPERMODEL_DEBUGGER
       else if (arg == "-disable-debugger")
         cmd_line.disable_debugger = true;

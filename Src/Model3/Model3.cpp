@@ -239,6 +239,8 @@
 #include <iostream>
 #include <algorithm>
 
+#include "ScudOnline/ScudOnline.h"
+
 /******************************************************************************
  Model 3 Inputs
 
@@ -2967,6 +2969,9 @@ bool CModel3::LoadGame(const Game &game, const ROMSet &rom_set)
   // Initialize CPU
   ppc_init(&ppc_config);
   ppc_attach_bus(this);
+
+  gamemod_attachbus(this); // gamemod
+
   PPCFetchRegions[0].start = 0;
   PPCFetchRegions[0].end = 0x007FFFFF;
   PPCFetchRegions[0].ptr = (UINT32 *) ram;
